@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WWS 88 RO 免安裝溫熱過濾水機 - 全球發售</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* 頂部導航 */
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        /* 主視覺區 */
+        .hero {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .hero img:hover {
+            transform: scale(1.02);
+        }
+        .hero h2 {
+            color: #2980b9;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .hero .subtitle {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        .hero .price {
+            font-size: 28px;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .hero .price span {
+            font-size: 18px;
+            color: #7f8c8d;
+            text-decoration: line-through;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+        /* 訂購按鈕風格匹配 */
+        .hero .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 0 10px;
+            border: 2px solid #000;
+        }
+        .hero .btn:hover {
+            background-color: #333;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        .hero .btn.secondary {
+            background-color: #fff;
+            color: #000;
+        }
+        .hero .btn.secondary:hover {
+            background-color: #f5f5f5;
+            color: #000;
+        }
+        /* 操作面板區 */
+        .operation {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .operation h3 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            position: relative;
+        }
+        .operation h3::after {
+            content: "";
+            width: 80px;
+            height: 3px;
+            background-color: #2980b9;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .operation-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+        .operation-content img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .operation-content img:hover {
+            transform: scale(1.02);
+        }
+        .operation-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .operation-text p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+        .operation-text ul {
+            list-style: none;
+        }
+        .operation-text li {
+            padding: 8px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .operation-text li::before {
+            content: "•";
+            color: #2980b9;
+            margin-right: 8px;
+        }
+        /* 免安裝區 */
+        .no-install {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .no-install h3 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            position: relative;
+        }
+        .no-install h3::after {
+            content: "";
+            width: 80px;
+            height: 3px;
+            background-color: #2980b9;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .no-install-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+        .no-install-content img {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .no-install-content img:hover {
+            transform: scale(1.02);
+        }
+        .no-install-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .no-install-text p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+        /* 淨水壺區 */
+        .jugs {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .jugs h3 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            position: relative;
+        }
+        .jugs h3::after {
+            content: "";
+            width: 80px;
+            height: 3px;
+            background-color: #2980b9;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .jugs-content {
+            text-align: center;
+        }
+        .jugs-content img {
+            max-width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .jugs-content img:hover {
+            transform: scale(1.02);
+        }
+        .jugs-text p {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        /* 全球發售區 */
+        .global-sales {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .global-sales h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+            position: relative;
+        }
+        .global-sales h3::after {
+            content: "";
+            width: 80px;
+            height: 3px;
+            background-color: #2980b9;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .sales-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .sales-box {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+        .sales-box:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+        .sales-box h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2980b9;
+        }
+        .sales-box ul {
+            list-style: none;
+        }
+        .sales-box li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .sales-box li::before {
+            content: "✓";
+            color: #2980b9;
+            margin-right: 8px;
+        }
+        /* 底部資訊 */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        .footer p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        /* 平滑滾動 */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 響應式調整 */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 24px;
+            }
+            .sales-content {
+                grid-template-columns: 1fr;
+            }
+            .jugs-content img {
+                max-width: 100%;
+            }
+            .header h1 {
+                font-size: 20px;
+            }
+            .operation, .no-install, .jugs, .global-sales {
+                padding: 20px;
+            }
+            .hero .btn {
+                padding: 10px 20px;
+                margin: 5px 0;
+                display: block;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        /* 圖片加載失敗默認樣式 */
+        img {
+            object-fit: cover;
+        }
+        img::after {
+            content: "圖片加載失敗";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eee;
+            color: #999;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>WWS 88 淨水設備系列</h1>
+            <p>雙重濾芯 · 即熱即飲 · 免安裝設計 | 全球發售</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 主視覺區 -->
+        <section class="hero">
+            <img src="main.jpg" alt="WWS 88 雙重濾芯過濾水機">
+            <h2>WWS 88 RO 免安裝溫熱過濾水機</h2>
+            <p class="subtitle">去除99.99%耐藥性細菌 | 4檔水溫 2檔水量 | 童鎖防燙設計</p>
+            <div class="price">HK$ 2,588 <span>HK$ 3,088</span></div>
+            <!-- 按鈕直接連結到訂購頁 -->
+            <a href="order.html" class="btn">立即訂購</a>
+            <a href="#global-sales" class="btn secondary">全球配送查詢</a>
+        </section>
+
+        <!-- 操作面板區 -->
+        <section class="operation">
+            <h3>智能提示 · 操作簡單</h3>
+            <div class="operation-content">
+                <img src="operation.jpg" alt="WWS 88 智能提示與輕觸屏幕">
+                <div class="operation-text">
+                    <p>輕觸屏幕設計，直觀操作無難度，搭配4大智能提示，使用更安心：</p>
+                    <ul>
+                        <li>原水箱缺水提示</li>
+                        <li>濾水過程中提示</li>
+                        <li>淨水壺未放置到位提醒</li>
+                        <li>濾芯壽命時間提醒</li>
+                    </ul>
+                    <p>4檔預設水溫（室溫/45℃/80℃/100℃）+2檔預設水量，輕鬆滿足不同飲用場景。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 免安裝區 -->
+        <section class="no-install">
+            <h3>免安裝 · 一插即用</h3>
+            <div class="no-install-content">
+                <div class="no-install-text">
+                    <p>無需連接水管，不受水喉限制，在家隨處擺放：</p>
+                    <p>✅ 3秒即熱，避免反覆煮沸水，隨時喝到新鮮熱水<br>
+                    ✅ 輕鬆換芯：一扭即可更換濾芯<br>
+                    ✅ 熱水安全鎖：長按3秒解鎖，避免燙傷</p>
+                </div>
+                <img src="noinstall.jpg" alt="WWS 88 免安裝一插即用">
+            </div>
+        </section>
+
+        <!-- 淨水壺區 -->
+        <section class="jugs">
+            <h3>2個淨水壺 · 多場景使用</h3>
+            <div class="jugs-content">
+                <img src="jug.jpg" alt="WWS 88 雙淨水壺設計">
+                <div class="jugs-text">
+                    <p>食品級材質，無雙酚A釋出，保障全家飲水安全</p>
+                    <p>5L大容量原水箱，減少加水次數；約6.6L淨水量（約55杯120mL），滿足全家需求</p>
+                    <p>2個淨水壺可隨時抽取，適用冷藏製作冰水、方便煲湯煮飯</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 全球發售區 -->
+        <section class="global-sales" id="global-sales">
+            <h3>全球發售 · 配送與支付</h3>
+            <div class="sales-content">
+                <div class="sales-box">
+                    <h4>全球配送範圍</h4>
+                    <ul>
+                        <li>香港、澳門、台灣地區（順豐速遞，2-3個工作天）</li>
+                        <li>中國大陸主要城市（京東物流，1-4個工作天）</li>
+                        <li>東南亞：新加坡、馬來西亞、泰國（DHL，3-5個工作天）</li>
+                        <li>歐美：美國、加拿大、英國、法國（FedEx，5-7個工作天）</li>
+                    </ul>
+                </div>
+                <div class="sales-box">
+                    <h4>支付方式</h4>
+                    <ul>
+                        <li>信用卡（Visa/MasterCard）</li>
+                        <li>支付寶/微信支付</li>
+                        <li>PayPal</li>
+                        <li>香港：八達通/FPS轉數快</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 WWS 淨水設備 版權所有 | 全球發售 · 品質保證</p>
+    </div>
+</body>
+</html>

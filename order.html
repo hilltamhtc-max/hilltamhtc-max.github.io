@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立即訂購 - WWS 88 RO 免安裝溫熱過濾水機</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* 頂部導航 */
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        /* 返回按鈕 */
+        .back-btn {
+            display: inline-block;
+            margin: 15px 0;
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            color: #1f618d;
+            text-decoration: underline;
+        }
+        /* 訂購主區域 */
+        .order-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        /* 產品展示區 */
+        .product-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .product-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .product-header h2 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .product-header .price {
+            font-size: 28px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .product-header .price span {
+            font-size: 18px;
+            color: #7f8c8d;
+            text-decoration: line-through;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+        .product-gallery {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .product-main-img {
+            flex: 3;
+        }
+        .product-main-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .product-thumbnails {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .product-thumbnails img {
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        .product-thumbnails img:hover,
+        .product-thumbnails img.active {
+            opacity: 1;
+            border: 2px solid #2980b9;
+        }
+        /* 選項區域 */
+        .options-section {
+            margin: 30px 0;
+        }
+        .option-group {
+            margin-bottom: 25px;
+        }
+        .option-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .option-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .option-item {
+            padding: 10px 20px;
+            border: 2px solid #eee;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .option-item:hover {
+            border-color: #2980b9;
+        }
+        .option-item.active {
+            border-color: #2980b9;
+            background-color: rgba(41, 128, 185, 0.1);
+        }
+        .quantity-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .quantity-btn {
+            width: 35px;
+            height: 35px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .quantity-input {
+            width: 60px;
+            height: 35px;
+            text-align: center;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+        /* 訂單表單區 */
+        .form-section {
+            margin-top: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #2980b9;
+        }
+        /* 訂單摘要區 */
+        .order-summary {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        .order-summary h3 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .summary-item.total {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c3e50;
+            border-top: 2px solid #eee;
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        .checkout-btn:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        .payment-methods {
+            margin-top: 20px;
+        }
+        .payment-methods h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .payment-icons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .payment-icons img {
+            height: 30px;
+            opacity: 0.8;
+        }
+        /* 響應式調整 */
+        @media (max-width: 768px) {
+            .order-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .product-gallery {
+                flex-direction: column;
+            }
+            .product-thumbnails {
+                flex-direction: row;
+            }
+            .header h1 {
+                font-size: 20px;
+            }
+            .product-section, .order-summary {
+                padding: 20px;
+            }
+        }
+        /* 底部資訊 */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        .footer p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>WWS 88 淨水設備系列 - 立即訂購</h1>
+            <p>雙重濾芯 · 即熱即飲 · 免安裝設計 | 全球發售</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 返回按鈕 -->
+        <a href="index.html" class="back-btn">← 返回產品介紹頁</a>
+
+        <!-- 訂購主區域 -->
+        <div class="order-wrapper">
+            <!-- 產品展示與表單區 -->
+            <div class="product-section">
+                <!-- 產品標題與價格 -->
+                <div class="product-header">
+                    <h2>WWS 88 RO 免安裝溫熱過濾水機</h2>
+                    <div class="price">HK$ 2,588 <span>HK$ 3,088</span></div>
+                    <p style="margin-top: 10px; color: #7f8c8d;">免運費 | 全球配送 | 一年保養</p>
+                </div>
+
+                <!-- 產品圖片展示 -->
+                <div class="product-gallery">
+                    <div class="product-main-img">
+                        <img src="main.jpg" alt="WWS 88 淨水機主圖" id="mainProductImg">
+                    </div>
+                    <div class="product-thumbnails">
+                        <img src="main.jpg" alt="主圖" class="active" onclick="changeMainImg('main.jpg')">
+                        <img src="operation.jpg" alt="操作面板" onclick="changeMainImg('operation.jpg')">
+                        <img src="noinstall.jpg" alt="免安裝設計" onclick="changeMainImg('noinstall.jpg')">
+                        <img src="jug.jpg" alt="雙淨水壺" onclick="changeMainImg('jug.jpg')">
+                    </div>
+                </div>
+
+                <!-- 產品選項 -->
+                <div class="options-section">
+                    <div class="option-group">
+                        <label>選擇套裝</label>
+                        <div class="option-items">
+                            <div class="option-item active">標準套裝 (主機+1組濾芯)</div>
+                            <div class="option-item">豪華套裝 (主機+3組濾芯)</div>
+                            <div class="option-item">至尊套裝 (主機+5組濾芯+替換水壺)</div>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <label>選擇配送地區</label>
+                        <div class="option-items">
+                            <div class="option-item active">香港</div>
+                            <div class="option-item">澳門</div>
+                            <div class="option-item">台灣</div>
+                            <div class="option-item">中國大陸</div>
+                            <div class="option-item">東南亞</div>
+                            <div class="option-item">歐美地區</div>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <label>購買數量</label>
+                        <div class="quantity-group">
+                            <div class="quantity-btn" onclick="decreaseQuantity()">-</div>
+                            <input type="number" value="1" min="1" class="quantity-input" id="quantityInput">
+                            <div class="quantity-btn" onclick="increaseQuantity()">+</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 訂單表單 -->
+                <div class="form-section">
+                    <h3 style="margin-bottom: 20px; color: #2c3e50;">送貨信息</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" placeholder="請輸入您的姓名">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">聯繫電話</label>
+                        <input type="tel" id="phone" placeholder="請輸入您的聯繫電話">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">電子郵箱</label>
+                        <input type="email" id="email" placeholder="請輸入您的電子郵箱">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">送貨地址</label>
+                        <textarea id="address" rows="4" placeholder="請詳細填寫送貨地址"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="delivery-date">預計送貨日期</label>
+                        <input type="date" id="delivery-date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="payment-method">支付方式</label>
+                        <select id="payment-method">
+                            <option value="">請選擇支付方式</option>
+                            <option value="credit-card">信用卡 (Visa/MasterCard)</option>
+                            <option value="alipay">支付寶</option>
+                            <option value="wechat">微信支付</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="octopus">八達通/FPS (香港)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 訂單摘要區 -->
+            <div class="order-summary">
+                <h3>訂單摘要</h3>
+                
+                <div class="summary-item">
+                    <span>商品價格</span>
+                    <span>HK$ 2,588</span>
+                </div>
+                
+                <div class="summary-item">
+                    <span>數量</span>
+                    <span id="summary-quantity">1</span>
+                </div>
+                
+                <div class="summary-item">
+                    <span>運費</span>
+                    <span>免費</span>
+                </div>
+                
+                <div class="summary-item">
+                    <span>保養服務</span>
+                    <span>HK$ 0</span>
+                </div>
+                
+                <div class="summary-item total">
+                    <span>應付總金額</span>
+                    <span id="total-price">HK$ 2,588</span>
+                </div>
+                
+                <button class="checkout-btn">確認訂單並支付</button>
+                
+                <div class="payment-methods">
+                    <h4>支持的支付方式</h4>
+                    <div class="payment-icons">
+                        <img src="visa.png" alt="Visa">
+                        <img src="mastercard.png" alt="MasterCard">
+                        <img src="alipay.png" alt="支付寶">
+                        <img src="wechat.png" alt="微信支付">
+                        <img src="paypal.png" alt="PayPal">
+                        <img src="octopus.png" alt="八達通">
+                    </div>
+                </div>
+                
+                <p style="margin-top: 20px; font-size: 12px; color: #7f8c8d;">
+                    提交訂單後，我們將在24小時內與您確認訂單信息。<br>
+                    所有訂單均提供一年原廠保養服務。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 WWS 淨水設備 版權所有 | 全球發售 · 品質保證</p>
+    </div>
+
+    <script>
+        // 更換主產品圖片
+        function changeMainImg(imgSrc) {
+            document.getElementById('mainProductImg').src = imgSrc;
+            // 更換縮略圖激活狀態
+            const thumbnails = document.querySelectorAll('.product-thumbnails img');
+            thumbnails.forEach(img => {
+                img.classList.remove('active');
+                if (img.src.includes(imgSrc)) {
+                    img.classList.add('active');
+                }
+            });
+        }
+
+        // 數量調整
+        function increaseQuantity() {
+            const input = document.getElementById('quantityInput');
+            input.value = parseInt(input.value) + 1;
+            updateSummary();
+        }
+
+        function decreaseQuantity() {
+            const input = document.getElementById('quantityInput');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+                updateSummary();
+            }
+        }
+
+        // 更新訂單摘要
+        function updateSummary() {
+            const quantity = document.getElementById('quantityInput').value;
+            document.getElementById('summary-quantity').textContent = quantity;
+            
+            // 計算總價
+            const unitPrice = 2588;
+            const total = unitPrice * parseInt(quantity);
+            document.getElementById('total-price').textContent = 'HK$ ' + total.toLocaleString();
+        }
+
+        // 選項點擊激活
+        document.querySelectorAll('.option-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // 移除同組其他選項的激活狀態
+                const parent = this.parentElement;
+                parent.querySelectorAll('.option-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                // 激活當前選項
+                this.classList.add('active');
+            });
+        });
+
+        // 提交訂單按鈕事件
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            // 簡單表單驗證
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            
+            if (!name || !phone || !email || !address) {
+                alert('請填寫完整的送貨信息！');
+                return;
+            }
+            
+            alert('訂單提交成功！我們將盡快與您聯繫確認訂單信息。');
+        });
+    </script>
+</body>
+</html>
